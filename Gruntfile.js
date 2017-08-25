@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 
 	watch: {
 	  assemble: {
-		files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
+		files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,json}'],
 		tasks: ['assemble']
 	  },
 	  livereload: {
@@ -85,6 +85,7 @@ module.exports = function(grunt) {
 		  data: '<%= config.src %>/data/*.{json,yml}',
 		  partials: '<%= config.src %>/templates/partials/*.hbs',
 		  plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap'],
+          
 		},
 		files: {
 		  '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs'],
@@ -120,7 +121,15 @@ module.exports = function(grunt) {
 			dest: '<%= config.dist %>/assets/fonts/',
             filter: 'isFile',
             flatten: true
-		}
+		},
+        img: {
+            expand: true,
+            cwd: '<%= config.src %>/assets/img/',
+            src: '**',
+            dest: '<%= config.dist %>/assets/img/',
+            filter: 'isFile',
+            flatten: true
+        }
 	},
 
 	sass: {

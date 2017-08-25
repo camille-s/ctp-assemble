@@ -18,7 +18,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="../">Dashboard home</a></li>
-                    <li><a href="http://www.transformnewhaven.org/{{ this.ctpUrl }}">{{ this.shortTitle }} in the CTP</a></li>
+                    {{#if isSector }}
+                        <li><a href="http://www.transformnewhaven.org/{{ ctpUrl }}">{{ shortTitle }} in the CTP</a></li>
+                    {{/if }}
                 </ul>
             </div>
         </div>
