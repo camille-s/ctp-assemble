@@ -46,9 +46,21 @@
 
 
 
-        <script src="https://code.jquery.com/jquery.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="assets/jquery/jquery.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         
+        <script>
+            var nav_gap = 64;
+            $('.jump-link').on('click', function() {
+                var target = $(this).attr('href');
+                var offset = $(target).offset().top - nav_gap;
+
+                $('html, body').animate({
+                    scrollTop: offset
+                }, 'slow');
+                return false;
+            });
+        </script>
     </body>
 </html>
