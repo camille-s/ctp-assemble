@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Jobs and Workforce - City Transformation Plan</title>
+        <title>Community Cohesion - City Transformation Plan</title>
 
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="../assets/css/main.css" />
@@ -38,7 +38,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="../">Dashboard home</a></li>
                 
-                    <li><a href="http://www.transformnewhaven.org/job-creation-and-workforce">Workforce in the CTP</a></li>
+                    <li><a href="http://www.transformnewhaven.org/community-cohesion-and-safety">Community Cohesion in the CTP</a></li>
                 
             </ul>
         </div>
@@ -51,8 +51,8 @@
 
 <div class="container" id="top">
     <div class="plank">
-    <h2 class="text-uppercase">Job creation and workforce development</h2>
-    <p class="goal"><strong>Vision: </strong>All residents have the job training, basic skills, and access to services that they need to succeed in living wage employment and achieve financial stability</p>
+    <h2 class="text-uppercase">Community cohesion and safety</h2>
+    <p class="goal"><strong>Vision: </strong>All neighborhoods will be safe, cohesive, free of violent crime, and capable of supporting their residents&#x27; success</p>
 </div>
 
 
@@ -62,14 +62,17 @@
     <h4>2020 Targets</h4>
     <dl>
         
-            <dt>Underemployment</dt>
-            <dd>Reduce the underemployment rate from 20% to 15% by moving 3,000 individuals into better jobs</dd>
+            <dt>Reduce crime</dt>
+            <dd>Reduce violent crime rate to the statewide average of 3 crimes per 1,000 residents</dd>
         
-            <dt>Living wage jobs</dt>
-            <dd>Increase the percentage of residents in jobs making a living wage from 39% to 45%, placing 700 people per year</dd>
+            <dt>Reconnect residents</dt>
+            <dd>Reduce recidivism rate for adults by 25%</dd>
         
-            <dt>Pipeline</dt>
-            <dd>Establish a unified workforce pipeline that supports, tracks, and places 5,000 residents in jobs</dd>
+            <dt>Build trust</dt>
+            <dd>Increase percentage of adults who report trusting their neighbors by 50%</dd>
+        
+            <dt>Engage youth</dt>
+            <dd>Engage 800 at-risk youth in YouthStat</dd>
         
     </dl>
 </div>
@@ -81,10 +84,10 @@
     <dl>
         
             <dt>
-                Underemployment
+                Recidivism
             </dt>
             <dd>
-                Underemployed people are either unemployed and want to work, or working part-time but want to work full-time.
+                Recidivism rate refers to the share of people released from prison or jail each year who return to jail within a certain period of time.
             </dd>
         
     </dl>
@@ -109,28 +112,12 @@
                             <div class="col-md-6">
     <div class="chart-wrapper">
         <div class="chart-title">
-            Underemployment rate by location, 2015
+            Adults who report feeling safe in neighborhood at night, 2012-2015
         </div>
         <div class="chart-stage">
-            <div id="underemployment-chart" class="chart210">
+            <div id="safety-trend" class="chart210">
                 
-                
-            </div>
-        </div>
-        <div class="chart-notes">
-            Source: DataHaven Community Wellbeing Survey
-        </div>
-    </div>
-</div>
-
-                        
-                            <div class="col-md-6">
-    <div class="chart-wrapper">
-        <div class="chart-title">
-            Underemployment, 2012-2020
-        </div>
-        <div class="chart-stage">
-            <div id="underemployment-trend" class="chart210">
+                    <svg></svg>
                 
                 
             </div>
@@ -146,77 +133,6 @@
                 
             </div>
 
-            
-                <div class="other-charts" id="other-charts">
-                    <h5>Other indicators</h5>
-                    
-                        <div class="row">
-                            
-                                <div class="col-md-12">
-    <div class="chart-wrapper">
-        <div class="chart-title">
-            Unemployment rate, 2002-2016
-        </div>
-        <div class="chart-stage">
-            <div id="unemployment-trend" class="chart210">
-                
-                
-            </div>
-        </div>
-        <div class="chart-notes">
-            Source: Bureau of Labor Statistics
-        </div>
-    </div>
-</div>
-
-                            
-                        </div>
-                    
-                        <div class="row">
-                            
-                                <div class="col-md-6">
-    <div class="chart-wrapper">
-        <div class="chart-title">
-            Share of workers commuting by public transit, biking, or walking, 2015
-        </div>
-        <div class="chart-stage">
-            <div id="commute-map" class="mapContainer">
-                
-                    <svg></svg>
-                
-                
-            </div>
-        </div>
-        <div class="chart-notes">
-            Source: US Census Bureau, American Community Survey
-        </div>
-    </div>
-</div>
-
-                            
-                                <div class="col-md-6">
-    <div class="chart-wrapper">
-        <div class="chart-title">
-            Median household income, 2015
-        </div>
-        <div class="chart-stage">
-            <div id="income-map" class="mapContainer">
-                
-                    <svg></svg>
-                
-                
-            </div>
-        </div>
-        <div class="chart-notes">
-            Source: US Census Bureau, American Community Survey
-        </div>
-    </div>
-</div>
-
-                            
-                        </div>
-                    
-                </div>
             
 
             <div class="text-right">
@@ -239,7 +155,7 @@
 
 
 <div class="plank">
-    <h5><a href="https://github.com/CT-Data-Haven/ctp-dash/blob/master/dist/data/workforce/workforce_data.md">Download the data</a></h5>
+    <h5><a href="https://github.com/CT-Data-Haven/ctp-dash/blob/master/dist/data/community/community_data.md">Download the data</a></h5>
 </div>
 
 
@@ -263,6 +179,6 @@
                 return false;
             });
         </script>
-        <script src="../assets/js/workforce.js"></script>
+        <script src="../assets/js/community.js"></script>
     </body>
 </html>
