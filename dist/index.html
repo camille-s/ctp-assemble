@@ -2,31 +2,176 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Home - City Transformation Plan</title>
 
         <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="assets/css/main.css" />
+
+        <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16" />
     </head>
 
     <body class="application">
 
         
-<div class="jumbotron">
-  <h1>ok, Assemble!</h1>
-  <h4>Welcome to my blog!</h4>
-  <p>This is a Assemble Generator template using <a href="http://getbootstrap.com">Bootstrap</a>. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-  <p><a href="blog.html" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
-  <p>
-      site name: City Transformation Plan
-  </p>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+                <span class="glyphicon glyphicon-stats"></span>
+                <span>
+                      City Transformation Plan
+                </span>
+            </div>
+            
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sectors <span class="caret"></span></a>
+                    <ul class="dropdown-menu"><li>
+                        <a href="pages/literacy.html">Adult literacy</a>
+                    </li>
+<li>
+                        <a href="pages/community.html">Community cohesion</a>
+                    </li>
+<li>
+                        <a href="pages/childhood.html">Early childhood</a>
+                    </li>
+<li>
+                        <a href="pages/economy.html">Economic development</a>
+                    </li>
+<li>
+                        <a href="pages/education.html">Education</a>
+                    </li>
+<li>
+                        <a href="pages/health.html">Health</a>
+                    </li>
+<li>
+                        <a href="pages/housing.html">Housing</a>
+                    </li>
+<li>
+                        <a href="pages/workforce.html">Workforce</a>
+                    </li>
+<li>
+                        <a href="pages/cross.html">Cross-sector</a>
+                    </li></ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.transformnewhaven.org/download-the-plan">Read the plan</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
-<div>
+
+<div class="container">
     <div class="plank">
-    <h2 class="text-uppercase">Job creation and workforce development</h2>
-    <p class="goal"><strong>Vision: </strong>All residents have the job training, basic skills, and access to services that they need to succeed in living wage employment and achieve financial stability</p>
+        <h2>New Haven City Transformation Plan</h2>
+<p>The City of New Haven, in partnership with <a href="http://ctdatahaven.org/">DataHaven</a>, is piloting an online dashboard that makes tracking progress on key indicators of well-being and program performance easy and transparent.</p>
+<p>Click or tap on a card to learn more about work in that sector. Click on a button below to filter cards for that sector.</p>
+
+    </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="btn-group filter-btns" id="filters" role="group" aria-label="filters">
+    <button type="button" class="btn btn-default active" data-filter="*">All sectors</button>
+    
+        <button type="button" class="btn btn-default" data-filter=".literacy">Adult literacy</button>
+    
+        <button type="button" class="btn btn-default" data-filter=".community">Community cohesion</button>
+    
+        <button type="button" class="btn btn-default" data-filter=".childhood">Early childhood</button>
+    
+        <button type="button" class="btn btn-default" data-filter=".economy">Economic development</button>
+    
+        <button type="button" class="btn btn-default" data-filter=".education">Education</button>
+    
+        <button type="button" class="btn btn-default" data-filter=".health">Health</button>
+    
+        <button type="button" class="btn btn-default" data-filter=".housing">Housing</button>
+    
+        <button type="button" class="btn btn-default" data-filter=".workforce">Workforce</button>
+    
+        <button type="button" class="btn btn-default" data-filter=".cross">Cross-sector</button>
+    
+</div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="grid" id="grid-container">
+                <div class="sk-circle spinner">
+    
+        <div class="sk-circle1 sk-child"></div>
+    
+        <div class="sk-circle2 sk-child"></div>
+    
+        <div class="sk-circle3 sk-child"></div>
+    
+        <div class="sk-circle4 sk-child"></div>
+    
+        <div class="sk-circle5 sk-child"></div>
+    
+        <div class="sk-circle6 sk-child"></div>
+    
+        <div class="sk-circle7 sk-child"></div>
+    
+        <div class="sk-circle8 sk-child"></div>
+    
+        <div class="sk-circle9 sk-child"></div>
+    
+        <div class="sk-circle10 sk-child"></div>
+    
+        <div class="sk-circle11 sk-child"></div>
+    
+        <div class="sk-circle12 sk-child"></div>
+    
+</div>
+
+
+                <div class="grid-sizer col-xs-12 col-sm-6 col-md-4 col-lg-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="key">
+    <h4>Key</h4>
+    <ul>
+        <li><span class="glyphicon glyphicon-arrow-up arrow-key"></span> trending upward</li>
+        <li><span class="glyphicon glyphicon-arrow-down arrow-key"></span> trending downward</li>
+        <li><span class="glyphicon glyphicon-minus arrow-key"></span> no significant trend</li>
+        <li><span class="glyphicon glyphicon-stop positive"></span> positive change</li>
+        <li><span class="glyphicon glyphicon-stop negative"></span> negative change</li>
+        <li><span class="glyphicon glyphicon-stop neutral"></span> neutral / no change</li>
+    </ul>
+</div>
+
+</div>
+<div class="container">
+    <h4>Sources</h4>
+    <div id="source-list"></div>
+</div>
+<div class="container">
+    <p class="text-muted">
+    Icons designed by <a href="https://www.alfredocreates.com/">Alfredo Hernandez</a> from Flaticon.
+</p>
 
 </div>
 
@@ -34,6 +179,13 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="assets/jquery/jquery.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/d3/d3.js"></script>
+        
+            <script src="assets/tabletop/tabletop.js"></script>
+<script src="assets/isotope/isotope.pkgd.min.js"></script>
+<script src="assets/handlebars/handlebars.js"></script>
+<script src="assets/js/cardTemplate.js"></script>
+
         
         <script>
             var nav_gap = 64;
@@ -47,5 +199,6 @@
                 return false;
             });
         </script>
+        <script src="assets/js/index.js"></script>
     </body>
 </html>

@@ -13,40 +13,35 @@
     .btn[data-filter=".cross"] {
         border-right: 1px solid #adadad
     }
-    .btn[data-filter=".workforce"] {
-        background-color: mix(white, $workforce, 50%);
-        color: $white;
-        &:hover {
-            background-color: mix(white, $workforce, 60%);
-        }
+    .btn[data-filter="*"] {
+        @include gridbutton(#555);
+    }
+    .btn[data-filter=".literacy"] {
+        @include gridbutton($literacy);
+    }
+    .btn[data-filter=".community"] {
+        @include gridbutton($community);
     }
     .btn[data-filter=".childhood"] {
-        background-color: mix(white, $childhood, 50%);
-        color: $white;
-        &:hover {
-            background-color: mix(white, $childhood, 60%);
-        }
+        @include gridbutton($childhood);
+    }
+    .btn[data-filter=".economy"] {
+        @include gridbutton($economy);
+    }
+    .btn[data-filter=".education"] {
+        @include gridbutton($education);
     }
     .btn[data-filter=".health"] {
-        background-color: mix(white, $health, 50%);
-        color: $white;
-        &:hover {
-            background-color: mix(white, $health, 60%);
-        }
+        @include gridbutton($health);
     }
     .btn[data-filter=".housing"] {
-        background-color: mix(white, $housing, 50%);
-        color: $white;
-        &:hover {
-            background-color: mix(white, $housing, 60%);
-        }
+        @include gridbutton($housing);
+    }
+    .btn[data-filter=".workforce"] {
+        @include gridbutton($workforce);
     }
     .btn[data-filter=".cross"] {
-        background-color: mix(white, $cross, 50%);
-        color: $white;
-        &:hover {
-            background-color: mix(white, $cross, 60%);
-        }
+        @include gridbutton($cross);
     }
     .btn.active {
         background-color: #d4d4d4 !important;
@@ -101,6 +96,7 @@
         color: #ffffff;
         line-height: 2;
         margin-top: 0;
+        font-weight: 400;
     }
 
     .expand-grid {
@@ -235,6 +231,22 @@
 
 .housing {
     @include gridcolors($housing);
+}
+
+.literacy {
+    @include gridcolors($literacy);
+}
+
+.education {
+    @include gridcolors($education);
+}
+
+.community {
+    @include gridcolors($community);
+}
+
+.economy {
+    @include gridcolors($economy);
 }
 
 .cross {

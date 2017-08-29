@@ -23,11 +23,16 @@ body {
         font-family: 'Karla', sans-serif;
         max-width: 1200px;
         margin: auto;
-        padding-bottom: $widepad * 5;
-        padding-top: $widepad * 4;
-        padding-left: $widepad;
-        padding-right: $widepad;
+        // padding-bottom: $widepad * 5;
+        // padding-top: $widepad * 4;
+        padding: $widepad*4 20px $widepad*5 20px;
+
+        div[class^="col-"] {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
     }
+
 }
 
 p {
@@ -63,10 +68,12 @@ h5 {
     margin: 1rem 0 2rem 0;
     h4 {
         color: $bright;
-        display: inline-block;
     }
     ul {
-        display: inline-block;
+        li {
+            display: block;
+            margin: 0.2rem 0;
+        }
     }
 }
 
@@ -89,7 +96,13 @@ h5 {
     }
 }
 
-
+.chart-wrapper {
+    border-color: $grayborder;
+    margin-bottom: 2rem;
+    .chart-title {
+        border-bottom: 1px solid darken($grayborder, 8);
+    }
+}
 
 .filter-btns .btn {
     margin: 0 1px;
@@ -129,7 +142,17 @@ h5 {
     }
 }
 
-// moving chart-wrapper, etc to dashboard file
+.chart-wrapper .dark-title {
+    background-color: $darkheader;
+    h4 {
+        color: $whitetxt;
+    }
+
+    .panel-heading {
+        background-color: $graybkgnd;
+        border-color: darken($graybkgnd, 8);
+    }
+}
 
 .panel-group {
     margin-bottom: 0;
@@ -162,4 +185,13 @@ h5 {
 
 .bg-danger {
     background-color: #c8e4f2;
+}
+
+#grid-container .sk-circle .sk-child:before {
+  background-color: darken($grayborder, 15);
+}
+
+#grid-container .sk-circle {
+  width: 60px;
+  height: 60px;
 }

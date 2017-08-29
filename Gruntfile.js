@@ -1,11 +1,11 @@
 /*
- * Generated on 2017-08-11
- * generator-assemble v0.5.0
- * https://github.com/assemble/generator-assemble
- *
- * Copyright (c) 2017 Hariadi Hinta
- * Licensed under the MIT license.
- */
+* Generated on 2017-08-11
+* generator-assemble v0.5.0
+* https://github.com/assemble/generator-assemble
+*
+* Copyright (c) 2017 Hariadi Hinta
+* Licensed under the MIT license.
+*/
 
 'use strict';
 
@@ -17,158 +17,186 @@
 
 module.exports = function(grunt) {
 
-  require('time-grunt')(grunt);
-  require('load-grunt-tasks')(grunt);
+	require('time-grunt')(grunt);
+	require('load-grunt-tasks')(grunt);
 
-  // Project configuration.
-  grunt.initConfig({
+	// Project configuration.
+	grunt.initConfig({
 
-	config: {
-	  src: 'src',
-	  dist: 'dist'
-	},
+		config: {
+			src: 'src',
+			dist: 'dist'
+		},
 
-	bower: {
-		install: {
+		bower: {
+			install: {
+				options: {
+					targetDir: '<%= config.dist %>/assets',
+					verbose: true,
+					copy: true,
+					layout: 'byType',
+					flatten: true
+					// bowerOptions: {}
+				}
+			}
+		},
+
+		postcss: {
 			options: {
-				targetDir: '<%= config.dist %>/assets',
-				verbose: true,
-				copy: true,
-				layout: 'byType',
-                flatten: true
-				// bowerOptions: {}
+				processors: [
+					require('autoprefixer')({ browsers: 'last 2 versions' })
+				]
+			},
+			dist: {
+				src: '<%= config.src %>/assets/*.css'
 			}
-		}
-	},
-
-	watch: {
-	  assemble: {
-		files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,json}'],
-		tasks: ['assemble']
-	  },
-	  livereload: {
-		options: {
-		  livereload: '<%= connect.options.livereload %>'
 		},
-		files: [
-		  '<%= config.dist %>/{,*/}*.html',
-		  '<%= config.dist %>/assets/{,*/}*.css',
-		  '<%= config.dist %>/assets/{,*/}*.js',
-		  '<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-		]
-	  }
-	},
 
-	connect: {
-	  options: {
-		port: 9000,
-		livereload: 35729,
-		// change this to '0.0.0.0' to access the server from outside
-		hostname: 'localhost'
-	  },
-	  livereload: {
-		options: {
-		  open: true,
-		  base: [
-			'<%= config.dist %>'
-		  ]
-		}
-	  }
-	},
-
-	assemble: {
-	  pages: {
-		options: {
-		  flatten: true,
-		  assets: '<%= config.dist %>/assets',
-		  layout: '<%= config.src %>/templates/layouts/default.hbs',
-		  data: '<%= config.src %>/data/*.{json,yml}',
-		  partials: '<%= config.src %>/templates/partials/*.hbs',
-		  plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap'],
-          
-		},
-		files: {
-		  '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs'],
-          '<%= config.dist %>/pages/': ['<%= config.src %>/templates/pages/sectors/*.hbs']
-		}
-	  }
-	},
-
-	copy: {
-		// bootstrap: {
-		// 	expand: true,
-		// 	cwd: 'bower_components/bootstrap/dist/',
-		// 	src: '**',
-		// 	dest: '<%= config.dist %>/assets/'
-		// },
-        bootstrap: {
-            expand: true,
-            cwd: 'bower_components/bootstrap/dist/',
-            src: ['css', 'js'],
-            dest: '<%= config.dist %>/assets/'
-        },
-		// theme: {
-		// 	expand: true,
-		// 	cwd: '<%= config.src %>/assets/',
-		// 	src: '**',
-		// 	dest: '<%= config.dist %>/assets/styles/'
-		// },
-
-		fonts: {
-			expand: true,
-			cwd: '<%= config.src %>/assets/webfonts/',
-			src: '**',
-			dest: '<%= config.dist %>/assets/fonts/',
-            filter: 'isFile',
-            flatten: true
-		},
-        img: {
-            expand: true,
-            cwd: '<%= config.src %>/assets/img/',
-            src: '**',
-            dest: '<%= config.dist %>/assets/img/',
-            filter: 'isFile',
-            flatten: true
-        }
-	},
-
-	sass: {
-		options: {
-			sourceMap: true
-		},
-		dist: {
-			files: {
-				'<%= config.dist %>/assets/css/main.css': '<%= config.src %>/assets/main.scss'
+		watch: {
+			assemble: {
+				files: ['<%= config.src %>/{content,data,templates,helpers}/{,*/}*.{md,hbs,yml,json}'],
+				tasks: ['assemble']
+			},
+			livereload: {
+				options: {
+					livereload: '<%= connect.options.livereload %>'
+				},
+				files: [
+					'<%= config.dist %>/{,*/}*.html',
+					'<%= config.dist %>/assets/{,*/}*.css',
+					'<%= config.dist %>/assets/{,*/}*.scss',
+					'<%= config.dist %>/assets/{,*/}*.js',
+					'<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+				]
 			}
-		}
-	},
+		},
+
+		connect: {
+			options: {
+				port: 9000,
+				livereload: 35729,
+				// change this to '0.0.0.0' to access the server from outside
+				hostname: 'localhost'
+			},
+			livereload: {
+				options: {
+					open: true,
+					base: [
+						'<%= config.dist %>'
+					]
+				}
+			}
+		},
+
+		assemble: {
+			pages: {
+				options: {
+					flatten: true,
+					assets: '<%= config.dist %>/assets',
+					layout: '<%= config.src %>/templates/layouts/default.hbs',
+					data: '<%= config.src %>/data/*.{json,yml}',
+					partials: ['<%= config.src %>/templates/partials/*.hbs', '<%= config.src %>/content/*.md'],
+					plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap']
+				},
+				files: {
+					'<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs'],
+					'<%= config.dist %>/pages/': ['<%= config.src %>/templates/pages/sectors/*.hbs']
+				}
+			},
+			options: {
+				helpers: ['<%= config.src %>/helpers/*.js', './node_modules/handlebars-helpers/{,*/}*.js']
+			}
+		},
+
+		copy: {
+			// bootstrap: {
+			// 	expand: true,
+			// 	cwd: 'bower_components/bootstrap/dist/',
+			// 	src: '**',
+			// 	dest: '<%= config.dist %>/assets/'
+			// },
+			bootstrap: {
+				expand: true,
+				cwd: 'bower_components/bootstrap/dist/',
+				src: ['css', 'js'],
+				dest: '<%= config.dist %>/assets/'
+			},
+			// theme: {
+			// 	expand: true,
+			// 	cwd: '<%= config.src %>/assets/',
+			// 	src: '**',
+			// 	dest: '<%= config.dist %>/assets/styles/'
+			// },
+
+			fonts: {
+				expand: true,
+				cwd: '<%= config.src %>/assets/webfonts/',
+				src: '**',
+				dest: '<%= config.dist %>/assets/fonts/',
+				filter: 'isFile',
+				flatten: true
+			},
+			img: {
+				expand: true,
+				cwd: '<%= config.src %>/assets/img/',
+				src: '**',
+				dest: '<%= config.dist %>/assets/img/',
+				filter: 'isFile',
+				flatten: true
+			},
+			scripts: {
+				expand: true,
+				cwd: '<%= config.src %>/scripts/',
+				src: '**',
+				dest: '<%= config.dist %>/assets/js/'
+			},
+			css: {
+				expand: true,
+				cwd: '<%= config.src %>/assets/',
+				src: '*.css',
+				dest: '<%= config.dist %>/assets/css/'
+			}
+		},
+
+		sass: {
+			options: {
+				sourceMap: true
+			},
+			dist: {
+				files: {
+					// '<%= config.dist %>/assets/css/main.css': '<%= config.src %>/assets/main.scss'
+					'<%= config.src %>/assets/main.css': '<%= config.src %>/assets/main.scss'
+				}
+			}
+		},
 
 
-	// Before generating any new files,
-	// remove any previously-created files.
-	clean: ['<%= config.dist %>/**/*.{html,xml}']
+		// Before generating any new files,
+		// remove any previously-created files.
+		clean: ['<%= config.dist %>/**/*.{html,xml}']
 
-  });
+	});
 
-  grunt.loadNpmTasks('assemble');
-  // grunt.loadNpmTasks('grunt-sass');
+	grunt.loadNpmTasks('assemble');
+	// grunt.loadNpmTasks('grunt-sass');
 
-  grunt.registerTask('server', [
-	'build',
-	'connect:livereload',
-	'watch'
-  ]);
+	grunt.registerTask('server', [
+		'build',
+		'connect:livereload',
+		'watch'
+	]);
 
-  grunt.registerTask('build', [
-	'clean',
-	'copy',
-	'assemble'
-  ]);
+	grunt.registerTask('build', [
+		'clean',
+		'sass',
+		'copy',
+		'assemble'
+	]);
 
-  grunt.registerTask('default', [
-	  'bower',
-	  'sass',
-	'build'
-  ]);
+	grunt.registerTask('default', [
+		'bower',
+		'sass',
+		'build'
+	]);
 
 };

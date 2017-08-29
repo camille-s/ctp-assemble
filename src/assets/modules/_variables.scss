@@ -33,6 +33,10 @@ $childhood: #953d9a;
 $health: #3a8b34;
 $housing: #2929b9;
 $cross: #c56f59;
+$economy: #ac201f;
+$education: #cf4f2e;
+$literacy: #c99326;
+$community: #328888;
 
 $negative: #a50026;
 $positive: #1a9850;
@@ -62,6 +66,14 @@ $hilite: #f3f382;
     }
     .descript {
         border-bottom: 1px solid $darker;
+    }
+}
+
+@mixin gridbutton($base-color) {
+    background-color: mix(white, $base-color, 50%);
+    color: $white;
+    &:hover {
+        background-color: mix(white, $base-color, 60%);
     }
 }
 
