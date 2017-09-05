@@ -28,15 +28,78 @@ module.exports = function(grunt) {
 			dist: 'dist'
 		},
 
-		bower: {
-			install: {
-				options: {
-					targetDir: '<%= config.dist %>/assets',
-					verbose: true,
-					copy: true,
-					layout: 'byType',
-					flatten: true
-					// bowerOptions: {}
+		pkg: grunt.file.readJSON('package.json'),
+
+		// bower: {
+		// 	install: {
+		// 		options: {
+		// 			targetDir: '<%= config.dist %>/assets',
+		// 			verbose: true,
+		// 			copy: true,
+		// 			layout: 'byType',
+		// 			flatten: true
+		// 			// bowerOptions: {}
+		// 		}
+		// 	}
+		// },
+
+		// babel
+		// babel: {
+		// 	options: {
+		// 		sourceMap: true
+		// 	},
+		// 	dist: {
+		// 		files: [
+		// 			{
+		// 				expand: true,
+		// 				cwd: '<%= config.src %>/scripts/es6/',
+		// 				src: ['*.js'],
+		// 				dest: '<%= config.src %>/scripts/'
+		// 			}
+		// 		]
+		// 	}
+		// },
+
+		bower_concat: {
+			concat_all: {
+				dest: {
+					js: '<%= config.dist %>/assets/_vendor.js',
+					css: '<%= config.dist %>/assets/_vendor.css'
+				},
+				exclude: [
+					'bootstrap'
+				],
+				mainFiles: {
+					'simple-statistics': ''
+				}
+			}
+		},
+
+		// concat: {
+		// 	dist: {
+		// 		src: ['<%= config.src %>/scripts/*.js'],
+		// 		dest: '<%= config.dist %>/<%= pkg.name %>.js'
+		// 	}
+		// },
+		//
+		// uglify: {
+		// 	options: {
+		// 		banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+		// 	},
+		// 	dist: {
+		// 		files: {
+		// 			'<%= config.dist %>/<%= pkg.name %>.min.js': ['<%= config.src %>/scripts/*.js']
+		// 		}
+		// 	}
+		// },
+
+		uglify: {
+			options: {
+				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+			},
+			dist: {
+				files: {
+					'<%= config.dist %>/assets/scripts/addons.js': ['<%= config.src %>/scripts/addons/*.js']
 				}
 			}
 		},
@@ -109,24 +172,12 @@ module.exports = function(grunt) {
 		},
 
 		copy: {
-			// bootstrap: {
-			// 	expand: true,
-			// 	cwd: 'bower_components/bootstrap/dist/',
-			// 	src: '**',
-			// 	dest: '<%= config.dist %>/assets/'
-			// },
 			bootstrap: {
 				expand: true,
 				cwd: 'bower_components/bootstrap/dist/',
-				src: ['css', 'js'],
+				src: '**',
 				dest: '<%= config.dist %>/assets/'
 			},
-			// theme: {
-			// 	expand: true,
-			// 	cwd: '<%= config.src %>/assets/',
-			// 	src: '**',
-			// 	dest: '<%= config.dist %>/assets/styles/'
-			// },
 
 			fonts: {
 				expand: true,
@@ -147,14 +198,27 @@ module.exports = function(grunt) {
 			scripts: {
 				expand: true,
 				cwd: '<%= config.src %>/scripts/',
-				src: '**',
-				dest: '<%= config.dist %>/assets/js/'
+				src: '*.js',
+				dest: '<%= config.dist %>/assets/scripts/'
 			},
 			css: {
 				expand: true,
 				cwd: '<%= config.src %>/assets/',
 				src: '*.css',
-				dest: '<%= config.dist %>/assets/css/'
+				dest: '<%= config.dist %>/assets/'
+			},
+			data: {
+				expand: true,
+				cwd: '<%= config.src %>/assets/data/',
+				src: '**',
+				dest: '<%= config.dist %>/assets/data/',
+				flatten: false
+			},
+			json: {
+				expand: true,
+				cwd: '<%= config.src %>/assets/json/',
+				src: '*.json',
+				dest: '<%= config.dist %>/assets/json/'
 			}
 		},
 
@@ -188,13 +252,17 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('build', [
 		'clean',
+		// 'babel',
+		'bower_concat',
+		// 'concat',
+		'uglify',
 		'sass',
 		'copy',
 		'assemble'
 	]);
 
 	grunt.registerTask('default', [
-		'bower',
+		// 'bower',
 		'sass',
 		'build'
 	]);

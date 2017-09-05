@@ -1,5 +1,5 @@
 .filter-btns .btn {
-    @include border-radius(4px);
+    // @include border-radius(4px);
 }
 
 .filter-btns {
@@ -44,7 +44,7 @@
         @include gridbutton($cross);
     }
     .btn.active {
-        background-color: #d4d4d4 !important;
+        // background-color: #d4d4d4 !important;
         color: $black !important;
     }
 }

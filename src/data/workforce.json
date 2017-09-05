@@ -40,7 +40,7 @@
                     "chartTitle": "Underemployment, 2012-2020",
                     "class": "chart210",
                     "source": "DataHaven Community Wellbeing Survey",
-                    "hasSvg": false
+                    "hasSvg": true
                 }
             ]
         }
@@ -55,7 +55,7 @@
                     "chartTitle": "Unemployment rate, 2002-2016",
                     "class": "chart210",
                     "source": "Bureau of Labor Statistics",
-                    "hasSvg": false
+                    "hasSvg": true
                 }
             ]
         }, {
@@ -67,14 +67,14 @@
                     "chartTitle": "Share of workers commuting by public transit, biking, or walking, 2015",
                     "class": "mapContainer",
                     "source": "US Census Bureau, American Community Survey",
-                    "hasSvg": true
+                    "hasSvg": false
                 }, {
                     "id": "income-map",
                     "n": "6",
                     "chartTitle": "Median household income, 2015",
                     "class": "mapContainer",
                     "source": "US Census Bureau, American Community Survey",
-                    "hasSvg": true
+                    "hasSvg": false
                 }
             ]
         }

@@ -70,10 +70,15 @@ $hilite: #f3f382;
 }
 
 @mixin gridbutton($base-color) {
-    background-color: mix(white, $base-color, 50%);
+    background-color: mix(white, $base-color, 40%);
     color: $white;
     &:hover {
         background-color: mix(white, $base-color, 60%);
+    }
+    &.active {
+        background-color: mix(white, $base-color, 25%);
+        box-shadow: none;
+        border: 1px solid $graytxt;
     }
 }
 
