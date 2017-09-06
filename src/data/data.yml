@@ -8,4 +8,4 @@ sectors: [
     { name: 'housing', title: 'Housing' },
     { name: 'workforce', title: 'Workforce' },
     { name: 'cross', title: 'Cross-sector' }
-]
+    ]

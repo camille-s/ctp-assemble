@@ -33,7 +33,7 @@
                 {
                     "id": "safety-trend",
                     "n": "6",
-                    "chartTitle": "Adults who report feeling safe in neighborhood at night, 2012-2015",
+                    "chartTitle": "Adults who report feeling unsafe in neighborhood at night, 2012-2015",
                     "class": "chart210",
                     "source": "DataHaven Community Wellbeing Survey",
                     "hasSvg": true
@@ -42,6 +42,6 @@
         }
     ],
     "otherCharts": [
-        
+
     ]
 }

@@ -31,14 +31,14 @@
                     "id": "diploma-trend",
                     "n": "6",
                     "chartTitle": "Adults without high school diplomas, 2000-2015",
-                    "class": "chart240",
+                    "class": "chart210",
                     "source": "US Census Bureau, American Community Survey",
                     "hasSvg": true
                 }, {
                     "id": "diploma-loc",
                     "n": "6",
                     "chartTitle": "Adults without high school diplomas by location, 2015",
-                    "class": "chart240",
+                    "class": "chart210",
                     "source": "US Census Bureau, American Community Survey",
                     "hasSvg": false
                 }
@@ -65,6 +65,6 @@
         }
     ],
     "otherCharts": [
-        
+
     ]
 }
