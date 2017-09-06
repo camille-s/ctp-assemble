@@ -63,8 +63,8 @@ module.exports = function(grunt) {
 		bower_concat: {
 			concat_all: {
 				dest: {
-					js: '<%= config.dist %>/assets/_vendor.js',
-					css: '<%= config.dist %>/assets/_vendor.css'
+					js: '<%= config.dist %>/assets/vendor.js',
+					css: '<%= config.dist %>/assets/vendor.css'
 				},
 				exclude: [
 					'bootstrap'
