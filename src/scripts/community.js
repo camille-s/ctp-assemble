@@ -1,19 +1,43 @@
 d3.queue()
     .defer(d3.csv, '../assets/data/community/wellbeing_survey_trend.csv')
-    // .defer(d3.json, '')
+    .defer(d3.csv, '../assets/data/community/crime_rate_by_tract.csv')
+    .defer(d3.json, '../assets/json/nhv_tracts.json')
     .await(initCommunity);
 
-function initCommunity(error, safety) {
+function initCommunity(error, safety, crime, json) {
     if (error) throw error;
 
     safety.forEach(function(d) {
         d.value = +d.value;
     });
 
+    crime.forEach(function(d) {
+        d.value = +d.value;
+    });
+
     var safetyTrend = makeSafetyTrend(safety);
+
+    var violentMap = d3map();
+    d3.select('#violent-crime-map')
+        .datum(topojson.feature(json, json.objects.nhv_tracts))
+        .call(violentMap);
+    violentMap.color(crime.filter(function(d) { return d.type === 'violent'; }), choroscale)
+        .tip('d3-tip', d3.format('.2r'), false)
+        .legend(d3.format('.0f'), 20, 20);
+
+    var propertyMap = d3map();
+    d3.select('#property-crime-map')
+        .datum(topojson.feature(json, json.objects.nhv_tracts))
+        .call(propertyMap);
+    propertyMap.color(crime.filter(function(d) { return d.type === 'property'; }), choroscale)
+        .tip('d3-tip', d3.format('.2r'), false)
+        .legend(d3.format('.0f'), 20, 20);
 
     d3.select(window).on('resize', function() {
         safetyTrend = makeSafetyTrend(safety);
+
+        violentMap.draw();
+        propertyMap.draw();
 
         redrawDots();
     });
