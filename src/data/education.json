@@ -48,7 +48,7 @@
             "charts": [
                 {
                     "id": "grad-by-school",
-                    "n": "10",
+                    "n": "6",
                     "chartTitle": "High school graduation rate by NHPS school, 2016",
                     "class": "chart300",
                     "source": "CT State Dept. of Education",

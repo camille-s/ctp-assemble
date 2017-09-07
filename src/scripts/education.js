@@ -139,7 +139,7 @@ function makeRaceTrend(data) {
 }
 
 function makeGradBars(data) {
-    var margin = { top: 12, right: 18, bottom: 40, left: 240 };
+    var margin = { top: 12, right: 18, bottom: 40, left: 80 };
     var svg = d3.select('#grad-by-school')
         .append('svg')
         .attr('width', '100%')
